@@ -18,6 +18,13 @@ jobs:
         with:
           token: ${{ secrets.WINGET_TOKEN }}
 
+      - name: Sync winget-pkgs fork with upstream
+        shell: pwsh
+        run: |
+          ./scripts/sync-winget-fork.ps1
+        env:
+          WINGET_TOKEN: ${{ secrets.WINGET_TOKEN }}
+
       - name: Install dependencies
         shell: pwsh
         run: |

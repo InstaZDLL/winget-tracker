@@ -34,6 +34,7 @@ winget-tracker/
 | `infer-version-from-filename.ps1` | 从 URL 文件名推断版本号 |
 | `scan-url-version.ps1` | 从 HTML 中所有 URL 扫描版本 |
 | `cleanup-merged-prs.ps1` | 清理已合并的 PR 分支（使用 komac） |
+| `sync-winget-fork.ps1` | 将 fork 的 winget-pkgs 仓库主分支同步到上游 microsoft/winget-pkgs |
 | `validate-config.ps1` | 验证配置文件格式 |
 
 ## 本地使用说明
@@ -80,8 +81,8 @@ $env:WINGET_TOKEN="your_github_personal_access_token"
 项目包含 GitHub Actions 工作流，Fork 本仓库后，在 Action 中手动执行一次后，后续即可自动运行：
 
 - **触发方式**：根据 cron 表达式自动运行，或手动触发 (`workflow_dispatch`)
-- **所需 Secrets**：`WINGET_TOKEN`（GitHub Personal Access Token）
-- 自动同步上游 winget-pkgs 仓库的 Action 偶尔会失败，这时需要去自己 Fork 的 winget-pkgs 仓库手动同步一下
+- **所需 Secrets**：`WINGET_TOKEN`（GitHub Personal Access Token，需要对自己 Fork 的 winget-pkgs 仓库有写权限）
+- 工作流开始时会自动将你 Fork 的 winget-pkgs 仓库主分支与上游 microsoft/winget-pkgs 同步（见 `scripts/sync-winget-fork.ps1`），一般无需再去手动同步
 
 ## 工作流程
 
