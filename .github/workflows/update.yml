@@ -7,8 +7,8 @@ on:
   # 1. 允许外部通过 cron-job.org 精准触发
   repository_dispatch:
     types: [trigger-tracker]
-  #schedule:
-  #  - cron: "59,25 * * * *"
+  schedule:
+    - cron: "37 3,9,15,21 * * *"
   workflow_dispatch:
 
 jobs:
