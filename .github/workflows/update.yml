@@ -8,7 +8,7 @@ on:
   repository_dispatch:
     types: [trigger-tracker]
   schedule:
-    - cron: "37 3,9,15,21 * * *"
+    - cron: "37 4,10,16,22 * * *"
   workflow_dispatch:
 
 jobs:
